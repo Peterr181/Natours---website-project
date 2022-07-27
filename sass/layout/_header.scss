@@ -1,0 +1,58 @@
+.header {
+  position: relative;
+  height: 95vh; /* wysokosc rzutni na 95 nie na 100 */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.76),
+      rgba($color-primary-dark, 0.764)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover; /* dopasuje nam image do boxa */
+  background-position: top; /* gora zostanie taka sama po rozciagnieciu itp*/
+
+  /* clip-path odpowiada za przyciecie obrazka */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: 600px) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.76),
+        rgba($color-primary-dark, 0.764)
+      ),
+      url("../img/hero-small.jpg");
+  }
+
+  @media (min-width: 2000px) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.76),
+        rgba($color-primary-dark, 0.764)
+      ),
+      url("../img/hero-small.jpg");
+  }
+
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  &__logo-box {
+    left: 4rem;
+    top: 4rem;
+    position: absolute;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* w ten sposob poniewaz chcemy zeby header znajdowal sie
+    caly czas na srodku strony, translate dokonczyl centrowanie obiektu */
+  }
+}
